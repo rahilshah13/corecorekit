@@ -19,7 +19,6 @@ def main():
         media = [line.strip().split(" ") for line in f.readlines() if line[0] != '#']
     
     for url, target in media:
-        print(url, target)
         YouTube(url).streams.filter(file_extension='mp4', only_audio=True).first().download(output_path=PATH+"audio/", filename=target+".mp4")       
         YouTube(url).streams.filter(file_extension='mp4').order_by('resolution').desc().first().download(output_path=PATH+"videos/", filename=target+".mp4")
 
