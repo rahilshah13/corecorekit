@@ -2,7 +2,6 @@
 invoation: python downloader.py <project_directory_name>
 - the project directory must have a media.txt file
 '''
-
 import sys
 import os
 from pytube import YouTube
@@ -18,9 +17,11 @@ def main():
 
     with open(PATH+"media.txt", 'r') as f:
         media = [line.strip().split(" ") for line in f.readlines() if line[0] != '#']
-
+    
     for url, target in media:
-        YouTube(url).streams.filter(file_extension='mp4', only_audio=True).first().download(output_path=PATH+"audio/", filename=target+".mp4")       YouTube(url).streams.filter(file_extension='mp4').order_by('resolution').desc().first().download(output_path=PATH+"videos/", filename=target+".mp4")
+        print(url, target)
+        YouTube(url).streams.filter(file_extension='mp4', only_audio=True).first().download(output_path=PATH+"audio/", filename=target+".mp4")       
+        YouTube(url).streams.filter(file_extension='mp4').order_by('resolution').desc().first().download(output_path=PATH+"videos/", filename=target+".mp4")
 
     for f in os.listdir(PATH+"audio"):
         if f.endswith(".mp4"):
