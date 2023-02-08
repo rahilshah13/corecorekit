@@ -1,0 +1,6 @@
+king_von_o 40 41 she_from
+king_von_o 45 46 met_her_at
+spaceward 0 25 slick_or_sentimental
+spaceward 46 1:06 i_wanna_be_in_yo_head
+super_gremlin 1:03 1:06 you_switched
+super_gremlin 1:06 1:09 superstars
